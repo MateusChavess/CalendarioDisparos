@@ -31,7 +31,7 @@ with logout_col:
         st.stop()
 
 # ---------- CONFIG ----------
-st.set_page_config(page_title="💰 Calendário de Gastos", layout="wide")
+st.set_page_config(page_title="Calendário de Gastos", layout="wide")
 st.markdown("<h1 style='margin:0'>📅 Calendário de Gastos</h1>", unsafe_allow_html=True)
 
 PROJECT_ID = "leads-ts"
@@ -94,8 +94,8 @@ f1, f2 = st.columns(2)
 leaders = sorted([x for x in df_raw["lider"].dropna().unique().tolist() if x != ""])
 actions = sorted([x for x in df_raw["acao"].dropna().unique().tolist() if x != ""])
 
-sel_leaders = f1.multiselect("Líder", options=leaders, default=[], placeholder="(vazio = todos)")
-sel_actions = f2.multiselect("Ação",  options=actions, default=[],  placeholder="(vazio = todas)")
+sel_leaders = f1.multiselect("Líder", options=leaders, default=[], placeholder="(Escolha o Líder)")
+sel_actions = f2.multiselect("Ação",  options=actions, default=[],  placeholder="(Escolha a Ação)")
 
 mask = pd.Series(True, index=df_raw.index)
 if len(sel_leaders) > 0:
@@ -131,7 +131,7 @@ else:
     mes_top, valor_top = "—", 0.0
 
 m1, m2, m3 = st.columns(3)
-m1.metric("💵 Total gasto (filtros)", fmt_usd(total_gasto))
+m1.metric("💵 Total gasto", fmt_usd(total_gasto))
 m2.metric("📆 Média semanal",        fmt_usd(media_semanal))
 m3.metric("🏆 Mês com maior gasto",  f"{mes_top} — {fmt_usd(valor_top)}")
 
