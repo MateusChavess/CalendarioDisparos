@@ -1,0 +1,5 @@
+# Ignorar segredos do Streamlit
+.streamlit/secrets.toml
+
+# Ignorar credenciais locais
+*.json

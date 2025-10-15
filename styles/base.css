@@ -1,0 +1,6 @@
+/* ===== base.css (global leve) ===== */
+:root{
+  --panel-bg:#0d1323; --card-bg:#101828; --card-border:#1f2937;
+  --txt:#e5e7eb; --muted:#9ca3af;
+}
+html, body { color: var(--txt); }

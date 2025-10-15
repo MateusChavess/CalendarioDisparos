@@ -1,0 +1,35 @@
+/* ===== sidebar.css ===== */
+
+/* Sidebar cheia e sem scroll */
+[data-testid="stSidebar"] > div:first-child {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  height: 100dvh;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Esconde tabs automáticas do multipage (e a busca, se existir) */
+div[data-testid="stSidebarNav"] { display: none !important; }
+div[data-testid="stSidebarNavSearch"] { display: none !important; }
+
+/* Layout interno */
+.sb-wrap{ display:flex; flex-direction:column; height:100%; }
+.sb-grow{ flex:1 1 auto; }
+.sb-footer{ padding-top:.25rem; }
+
+/* Caixinha dos botões */
+.sb-box{
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:12px;
+  padding:10px;
+  margin:8px 0 12px;
+}
+.sb-box .stButton{ margin:4px 0; }
+
+/* Kill-switch para qualquer input “fantasma” no sidebar */
+[data-testid="stSidebar"] .stTextInput,
+[data-testid="stSidebar"] input[type="text"],
+[data-testid="stSidebar"] [data-baseweb="input"] {
+  display:none !important; height:0 !important; margin:0 !important; padding:0 !important; border:0 !important;
+}
