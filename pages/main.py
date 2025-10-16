@@ -71,6 +71,14 @@ def load_rows():
     """
     return bq.query(sql).result().to_dataframe(create_bqstorage_client=False)
 
+# ===== Botão de atualização =====
+# Limpa o cache da função 'load_rows' e recarrega a app para buscar dados atuais do BigQuery
+ctrl1, ctrl2 = st.columns([1,1])
+with ctrl2:
+    if st.button("🔄 Atualizar dados", use_container_width=True, help="Recarrega dados mais recentes do BigQuery"):
+        load_rows.clear()    # limpa o cache desta função
+        st.rerun()           # reroda a app (vai consultar novamente)
+
 with st.spinner("🔍 Consultando BigQuery…"):
     df_raw = load_rows()
 
